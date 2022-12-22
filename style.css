@@ -1,0 +1,21 @@
+#principalContainer{
+    width: 90vw;
+    height: 70vh;
+    background-color: rgba(33, 33, 221, 0.39);
+    border-radius: 20px;
+    text-align: center;
+}
+
+#principalContainer div{
+    width: 300px;
+    margin: 0px auto;
+    
+}
+
+div{
+    
+    background-color: burlywood;
+    color: antiquewhite;
+}
+
+.resultado { background-color: blue;}
