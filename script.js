@@ -1,33 +1,27 @@
-const inputPrice = document.querySelector('#price');
-const inputDiscount = document.querySelector('#discount');
+const inputCupon = document.querySelector('#inputCupon');
 const outPut = document.querySelector('#result');
 const btn = document.querySelector('#calcular');
 
 
-btn.addEventListener('click',CalcularPrecioConDescuento)
+const cupon = ['pedro','luis','juan'];
 
-function CalcularPrecioConDescuento() {
-    const price = Number(inputPrice.value);
-    const discount = Number(inputDiscount.value);
-    
-    console.log({price,discount});
-    
-    
-    if (!price || !discount){
+btn.addEventListener('click',aplicarCupon)
 
-        outPut.innerText = 'Uuups Ocurrio un Error'
-        return
+
+function aplicarCupon() {
+    
+    
+    for (let i = 0; i < cupon.length; i++) {
+        result = (cupon[i]);
+        
+        console.log(result);
+        console.log(inputCupon.value);
+        if (result == inputCupon.value) {
+            outPut.innerText = 'Felicidades tienes un 50 % de descuento'
+            return
+        } else {
+            outPut.innerText = 'Introduce un Codigo Válido'
+            
+        }
     }
-    
-    if (discount > 100){
-
-        outPut.innerText = 'El descuento no puede ser mayor de 100'
-        return
     }
-    
-
-    const newPrice = (price *  (100 - discount) / 100)
-
-    outPut.innerText = `El precio con descuento es de $ ${newPrice}`
-
-}
