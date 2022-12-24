@@ -10,18 +10,12 @@ btn.addEventListener('click',aplicarCupon)
 
 function aplicarCupon() {
     
+    result = cupon.includes(inputCupon.value) 
     
-    for (let i = 0; i < cupon.length; i++) {
-        result = (cupon[i]);
-        
-        console.log(result);
-        console.log(inputCupon.value);
-        if (result == inputCupon.value) {
-            outPut.innerText = 'Felicidades tienes un 50 % de descuento'
-            return
-        } else {
-            outPut.innerText = 'Introduce un Codigo Válido'
-            
-        }
+    if (result == true) {
+        alert('Tienes descuento')
+    } else {
+        alert('Introduzca un cupon valido')
     }
+
     }
