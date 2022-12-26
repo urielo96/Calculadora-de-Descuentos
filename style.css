@@ -1,21 +1,25 @@
-#principalContainer{
-    width: 90vw;
-    height: 70vh;
-    background-color: rgba(33, 33, 221, 0.39);
-    border-radius: 20px;
+body{
+    background-color: rgba(137, 43, 226, 0.718);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#contenedor{
+    color: aliceblue;
+    background-color: rgba(14, 14, 144, 0.808);
+    margin: 0 auto;
+    width: 600px;
+    height: 90vh;
+    border: 5px;
+    border-radius: 7px;
+    border-style: dotted;
+    border-color: black;
+}
+
+h1{
     text-align: center;
 }
 
-#principalContainer div{
-    width: 300px;
-    margin: 0px auto;
-    
+input {
+    border-color: brown;
+    border-radius: 5px;
 }
-
-div{
-    
-    background-color: burlywood;
-    color: antiquewhite;
-}
-
-.resultado { background-color: blue;}
