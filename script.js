@@ -3,21 +3,37 @@ const inputCupon = document.querySelector('#inputCupon');
 const outPut = document.querySelector('#result');
 const btn = document.querySelector('#calcular');
 
-// Array con obejos de Ejemplo para aplicarles metodos
+// Array con obejtos de Ejemplo para aplicarles metodos
 
-const cupones = {
-    'navidad' : 30,
-    'diademuertos': 50,
-    'urielo': 100
-}
+const cupones = []
 
+cupones.push({
+    name : 'navidad',
+    discount : 10
+})
+cupones.push({
+    name : 'dia_de_muertos',
+    discount : 30
+})
+cupones.push({
+    name : 'halloween',
+    discount : 50
+})
+cupones.push({
+    name : 'lol',
+    discount : 70
+})
+cupones.push({
+    name : 'proto',
+    discount : 100
+})
 
-
-
-
+// Un addventlisener aplicado al boton para que ejecute una funcion
 btn.addEventListener('click',calcularNuevoPrecio)
 
- function calcularNuevoPrecio(){
+//Función pricipal que se ejecutara
+
+function calcularNuevoPrecio(){
     
     const precio = Number(inputPrecio.value);
     const cupon = inputCupon.value;
@@ -29,16 +45,28 @@ btn.addEventListener('click',calcularNuevoPrecio)
 
     let discount;
 
-    if (cupones[cupon]) {
-        discount = cupones[cupon]
-    } else {   
-        outPut.innerText = 'Introduzca un Cupon valido';
-        return
+    // Función Validadora  la cual va a ocpar el metodo filter
+    
+    function verify(_cupon) {
+        return _cupon.name == cupon 
     }
 
-    console.log(discount);
+    //  Aplicando  el metodo filter a cupones usando la validacion de la funcion de arriba que devulve TRUE     
+    cupondiscount = cupones.filter(verify);
 
+    if (cupondiscount.length > 0 ) {
+        discount = cupondiscount[0].discount;
+    } 
+    else {
+        outPut.innerText = `El cupón no es válido`
+    }
+    
     const newPrice = (precio * (100 - discount) / 100);
+    outPut.innerText = `El nuevo precio con descuento es de  ${newPrice}`
+   
+    }
 
-    outPut.innerText = `El nuevo descuento es de ${newPrice}`
-}
+    
+    
+
+    
