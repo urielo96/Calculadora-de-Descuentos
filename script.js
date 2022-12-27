@@ -1,72 +1,38 @@
-const inputPrecio = document.querySelector('#inputPrecio')
-const inputCupon = document.querySelector('#inputCupon');
-const outPut = document.querySelector('#result');
-const btn = document.querySelector('#calcular');
+const number = document.querySelector('#inputNumber'); 
+const salida = document.querySelector('#result');
+const finalResult = document.querySelector('#finalResult');
+const btnNumber = document.querySelector('#btnNumber')
+const btnCalc = document.querySelector('#btnCalc')
 
-// Array con obejtos de Ejemplo para aplicarles metodos
 
-const cupones = []
+const numbers = []
 
-cupones.push({
-    name : 'navidad',
-    discount : 10
-})
-cupones.push({
-    name : 'dia_de_muertos',
-    discount : 30
-})
-cupones.push({
-    name : 'halloween',
-    discount : 50
-})
-cupones.push({
-    name : 'lol',
-    discount : 70
-})
-cupones.push({
-    name : 'proto',
-    discount : 100
-})
+btnNumber.addEventListener('click',addNumber);
 
-// Un addventlisener aplicado al boton para que ejecute una funcion
-btn.addEventListener('click',calcularNuevoPrecio)
 
-//Función pricipal que se ejecutara
+function addNumber() {
+    numbers.push(number.value)
+    salida.innerText = `Los numeros son ${numbers}`
+}
 
-function calcularNuevoPrecio(){
+btnCalc.addEventListener('click',calcAverage);
+
+function calcAverage() {
     
-    const precio = Number(inputPrecio.value);
-    const cupon = inputCupon.value;
+    let acumulator = 0 ;
 
-    if (!precio || !cupon) {
-        outPut.innerText = 'Por favor rellene los 2 campos'
-        return
+    for (let i = 0; i < numbers.length; i++) {
+         let numberInArray = numbers[i];
+        
+        acumulator = acumulator + Number(numberInArray);
+        
     }
 
-    let discount;
-
-    // Función Validadora  la cual va a ocpar el metodo filter
+    let average = acumulator / numbers.length 
+    finalResult.innerText = ` El promedio es ${average}`
     
-    function verify(_cupon) {
-        return _cupon.name == cupon 
-    }
-
-    //  Aplicando  el metodo filter a cupones usando la validacion de la funcion de arriba que devulve TRUE     
-    cupondiscount = cupones.find(verify);
-
-    if (cupondiscount) {
-        discount = cupondiscount.discount;
-    } 
-    else {
-        outPut.innerText = `El cupón no es válido`
-    }
-    
-    const newPrice = (precio * (100 - discount) / 100);
-    outPut.innerText = `El nuevo precio con descuento es de  ${newPrice}`
-   
-    }
-
-    
+}
     
 
     
+ 
