@@ -52,10 +52,10 @@ function calcularNuevoPrecio(){
     }
 
     //  Aplicando  el metodo filter a cupones usando la validacion de la funcion de arriba que devulve TRUE     
-    cupondiscount = cupones.filter(verify);
+    cupondiscount = cupones.find(verify);
 
-    if (cupondiscount.length > 0 ) {
-        discount = cupondiscount[0].discount;
+    if (cupondiscount) {
+        discount = cupondiscount.discount;
     } 
     else {
         outPut.innerText = `El cupón no es válido`
